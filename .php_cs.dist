@@ -1,0 +1,132 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__)
+    ->exclude('var')
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'align_multiline_comment' => ['comment_type' => 'all_multiline'],
+        'array_indentation' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'blank_line_after_namespace' => true,
+        'blank_line_after_opening_tag' => true,
+        'binary_operator_spaces' => [
+            'default'   => null,
+            'operators' => [
+                // Объявление массивов
+                '=>'  => 'align_single_space',
+                // Операторы присваивания
+                '='   => 'align_single_space',
+                '&='  => 'align_single_space',
+                '.='  => 'align_single_space',
+                '/='  => 'align_single_space',
+                '-='  => 'align_single_space',
+                '%='  => 'align_single_space',
+                '*='  => 'align_single_space',
+                '|='  => 'align_single_space',
+                '+='  => 'align_single_space',
+                '<<=' => 'align_single_space',
+                '>>=' => 'align_single_space',
+                '^='  => 'align_single_space',
+                '**=' => 'align_single_space',
+                // Операторы вычислений
+                '|'   => 'single_space',
+                '^'   => 'single_space',
+                '+'   => 'single_space',
+                '-'   => 'single_space',
+                '&'   => 'single_space',
+                '*'   => 'single_space',
+                '/'   => 'single_space',
+                '%'   => 'single_space',
+                '**'  => 'single_space',
+                '>>'  => 'single_space',
+                '<<'  => 'single_space',
+                // Тернарный оператор
+                '??'  => 'single_space',
+                // Логические операторы
+                '<'   => 'single_space',
+                '>'   => 'single_space',
+                '&&'  => 'single_space',
+                '||'  => 'single_space',
+                '=='  => 'single_space',
+                '>='  => 'single_space',
+                '===' => 'single_space',
+                '!='  => 'single_space',
+                '<>'  => 'single_space',
+                '!==' => 'single_space',
+                '<='  => 'single_space',
+                '<=>' => 'single_space',
+                'and' => 'single_space',
+                'or'  => 'single_space',
+                'xor' => 'single_space',
+            ],
+        ],
+        'braces' => [
+            'allow_single_line_closure'                   => true,
+            'position_after_functions_and_oop_constructs' => 'next',
+        ],
+        'encoding' => true,
+        'full_opening_tag' => true,
+        'function_declaration' => ['closure_function_spacing' => 'one'],
+        'function_typehint_space' => true,
+        'indentation_type' => true,
+        'list_syntax' => ['syntax' => 'short'],
+        'lowercase_cast' => true,
+        'lowercase_constants' => true,
+        'lowercase_keywords' => true,
+        'method_argument_space' => [
+            'ensure_fully_multiline' => true, // Если аргумены перечислены более чем в одну строку, то проверяет, что каждый аргумент находится на своей строке
+            'keep_multiple_spaces_after_comma' => false, // После запятой, будет ровно 1 пробел
+        ],
+        'method_chaining_indentation' => true,
+        'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
+        'new_with_braces' => true,
+        'no_closing_tag' => true,
+        'no_empty_statement' => true,
+        'no_extra_blank_lines' => [
+            'tokens' => [ // Избавляемся от ненужных пустых линий
+                //'curly_brace_block',
+                'extra',
+                //'parenthesis_brace_block',
+                'return',
+                //'square_brace_block',
+                //'throw',
+                //'use',
+            ],
+        ],
+        'no_homoglyph_names' => true,
+        'no_leading_import_slash' => true,
+        'no_multiline_whitespace_around_double_arrow' => true,
+        'no_null_property_initialization' => true,
+        'no_spaces_after_function_name' => true,
+        'no_spaces_inside_parenthesis' => true,
+        'no_superfluous_elseif' => true,
+        'no_trailing_whitespace' => true,
+        'no_unused_imports' => true,
+        'no_useless_else' => true,
+        'no_whitespace_in_blank_line' => true,
+        'non_printable_character' => true,
+        'ordered_imports' => true,
+        'phpdoc_align' => ['tags' => ['param']],
+        'phpdoc_single_line_var_spacing' => true,
+        'phpdoc_trim' => true,
+        'phpdoc_types_order' => [
+            'null_adjustment' => 'always_last',
+            'sort_algorithm'  => 'none',
+        ],
+        'return_type_declaration' => ['space_before' => 'none'],
+        'single_blank_line_at_eof' => true,
+        'single_line_after_imports' => true,
+        'single_line_comment_style' => true,
+        'switch_case_space' => true,
+        'ternary_operator_spaces' => true,
+        'ternary_to_null_coalescing' => true,
+        'trailing_comma_in_multiline_array' => true,
+        'trim_array_spaces' => true,
+        'whitespace_after_comma_in_array' => true,
+    ])
+    ->setFinder($finder)
+;
